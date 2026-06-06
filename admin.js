@@ -39,9 +39,8 @@ email,
 password
 );
 
-```
 alert("Giriş başarılı");
-```
+
 
 } catch (error) {
 alert(error.message);
@@ -54,21 +53,18 @@ onAuthStateChanged(auth, (user) => {
 
 if (user) {
 
-```
 loginSection.style.display = "none";
 adminPanel.style.display = "block";
 adminAdsSection.style.display = "block";
 
 loadAds();
-```
+
 
 } else {
 
-```
 loginSection.style.display = "block";
 adminPanel.style.display = "none";
 adminAdsSection.style.display = "none";
-```
 
 }
 
@@ -80,15 +76,11 @@ logoutBtn.addEventListener("click", async () => {
 
 try {
 
-```
 await signOut(auth);
-```
 
 } catch (error) {
 
-```
 alert(error.message);
-```
 
 }
 
@@ -111,7 +103,6 @@ return;
 
 try {
 
-```
 await addDoc(
   collection(db, "ads"),
   {
@@ -132,13 +123,10 @@ document.getElementById("price").value = "";
 document.getElementById("image").value = "";
 
 loadAds();
-```
 
 } catch (error) {
 
-```
 alert(error.message);
-```
 
 }
 
@@ -152,7 +140,6 @@ adminAds.innerHTML = "";
 
 try {
 
-```
 const querySnapshot = await getDocs(
   collection(db, "ads")
 );
@@ -198,13 +185,10 @@ querySnapshot.forEach((docSnap) => {
   adminAds.appendChild(card);
 
 });
-```
 
 } catch (error) {
 
-```
 console.error(error);
-```
 
 }
 
@@ -222,19 +206,15 @@ if (!result) return;
 
 try {
 
-```
 await deleteDoc(
   doc(db, "ads", id)
 );
 
 loadAds();
-```
 
 } catch (error) {
 
-```
 alert(error.message);
-```
 
 }
 
