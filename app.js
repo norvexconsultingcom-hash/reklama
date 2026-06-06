@@ -1,3 +1,4 @@
+```javascript
 import { db } from "./firebase.js";
 
 import {
@@ -77,9 +78,16 @@ function renderAds(ads){
         <img
         src="${
             ad.image ||
-            'https://via.placeholder.com/500x300'
+            'images/1.jpg'
         }"
-        alt="${ad.title}">
+        alt="${ad.title}"
+        style="
+            width:100%;
+            height:300px;
+            object-fit:contain;
+            background:#fff;
+            display:block;
+        ">
 
         <div class="ad-content">
 
@@ -97,11 +105,35 @@ function renderAds(ads){
 
             <br>
 
-            <strong>
-                Kategori:
-            </strong>
+            <p>
+                <strong>Kategori:</strong>
+                ${ad.category || "Diğer"}
+            </p>
 
-            ${ad.category || "Diğer"}
+            <p>
+                <strong>Telefon:</strong>
+                ${ad.phone || "-"}
+            </p>
+
+            <p>
+                <strong>WhatsApp:</strong>
+                ${ad.whatsapp || "-"}
+            </p>
+
+            <p>
+                <strong>Konum:</strong>
+                ${ad.location || "-"}
+            </p>
+
+            <p>
+                <strong>Cinsiyet:</strong>
+                ${ad.gender || "-"}
+            </p>
+
+            <p>
+                <strong>Yaş:</strong>
+                ${ad.age || "-"}
+            </p>
 
         </div>
 
@@ -144,6 +176,18 @@ if(searchInput){
                     ?.toLowerCase()
                     .includes(value)
 
+                    ||
+
+                    ad.phone
+                    ?.toLowerCase()
+                    .includes(value)
+
+                    ||
+
+                    ad.location
+                    ?.toLowerCase()
+                    .includes(value)
+
                 );
 
             });
@@ -158,3 +202,4 @@ if(searchInput){
 /* SAHYPA AÇYLANDA */
 
 loadAds();
+```
