@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reklama Norvex</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Reklama Norvex</div>
+
+    <nav>
+      <a href="#">Ana Sayfa</a>
+      <a href="#ilanlar">İlanlar</a>
+      <a href="admin.html">Admin Panel</a>
+    </nav>
+
+    <div class="auth-buttons">
+      <button>Giriş Yap</button>
+      <button>Kayıt Ol</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>İş İlanları ve Hizmet Reklamları</h1>
+    <p>Yazılım, Tasarım, Pazarlama ve daha fazlası.</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="İlan ara...">
+      <button>Ara</button>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>Kategoriler</h2>
+
+    <div class="category-grid">
+      <div class="category-card">Yazılım</div>
+      <div class="category-card">Grafik Tasarım</div>
+      <div class="category-card">Web Tasarım</div>
+      <div class="category-card">Mobil Uygulama</div>
+      <div class="category-card">Dijital Pazarlama</div>
+      <div class="category-card">Diğer</div>
+    </div>
+  </section>
+
+  <section id="ilanlar">
+    <h2>Son İlanlar</h2>
+
+    <div id="adsContainer" class="ads-grid">
+      <!-- Firebase-den reklamalar şu ýerde çykar -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Reklama Norvex</p>
+  </footer>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

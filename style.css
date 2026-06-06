@@ -1,0 +1,378 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7fb;
+    color:#222;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:#0066ff;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+nav a:hover{
+    opacity:.8;
+}
+
+.auth-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.auth-buttons button{
+    background:white;
+    color:#0066ff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(
+        135deg,
+        #0066ff,
+        #00a2ff
+    );
+
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.search-box input{
+    width:400px;
+    max-width:90%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.search-box button{
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    background:#ff9800;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SECTIONS */
+
+section{
+    padding:70px 8%;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:35px;
+    font-size:35px;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.category-card{
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+}
+
+/* ADS */
+
+.ads-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+}
+
+.ad-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+}
+
+.ad-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.ad-content{
+    padding:20px;
+}
+
+.ad-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.ad-description{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.ad-price{
+    color:#0066ff;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .search-box button{
+        width:200px;
+    }
+}
+
+/* =========================
+   ADMIN DESIGN
+========================= */
+
+#loginSection,
+#adminPanel,
+#adminAdsSection{
+    padding:60px 8%;
+}
+
+.admin-card{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.10);
+}
+
+.admin-card h2{
+    text-align:center;
+    color:#0066ff;
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+.admin-card input,
+.admin-card textarea,
+.admin-card select{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #dfe3ea;
+    border-radius:12px;
+    font-size:16px;
+}
+
+.admin-card input:focus,
+.admin-card textarea:focus,
+.admin-card select:focus{
+    outline:none;
+    border-color:#0066ff;
+}
+
+.admin-card textarea{
+    min-height:150px;
+}
+
+#addAdBtn{
+    width:100%;
+    background:linear-gradient(
+        135deg,
+        #0066ff,
+        #00a2ff
+    );
+
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#addAdBtn:hover{
+    opacity:.9;
+}
+
+/* LOGIN CARD */
+
+#loginSection .admin-card{
+    max-width:500px;
+    margin-top:60px;
+}
+
+/* DASHBOARD LOOK */
+
+#adminAdsSection h2{
+    margin-bottom:30px;
+    color:#0066ff;
+}
+
+/* DELETE BUTTON */
+
+#adminAds button{
+    width:100%;
+    padding:12px;
+    background:#ff4d4f;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#adminAds button:hover{
+    background:#d9363e;
+}
+
+/* LOGOUT */
+
+#logoutBtn{
+    background:#ff4d4f;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* ADMIN HEADER */
+
+.navbar{
+    background:linear-gradient(
+        135deg,
+        #0066ff,
+        #00a2ff
+    );
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    #loginSection,
+    #adminPanel,
+    #adminAdsSection{
+        padding:30px 15px;
+    }
+
+    .admin-card{
+        padding:20px;
+    }
+
+    .admin-card h2{
+        font-size:24px;
+    }
+}
