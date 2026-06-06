@@ -1,4 +1,3 @@
-```javascript
 import { db } from "./firebase.js";
 
 import {
@@ -38,9 +37,7 @@ async function loadAds() {
 
         renderAds(allAds);
 
-    }
-
-    catch(error){
+    } catch (error) {
 
         console.error(error);
 
@@ -53,16 +50,17 @@ async function loadAds() {
 
 /* REKLAMALARY ÇYKAR */
 
-function renderAds(ads){
+function renderAds(ads) {
 
     adsContainer.innerHTML = "";
 
-    if(ads.length === 0){
+    if (ads.length === 0) {
 
         adsContainer.innerHTML =
         "<h2>İlan bulunamadı</h2>";
 
         return;
+
     }
 
     ads.forEach(ad => {
@@ -76,11 +74,8 @@ function renderAds(ads){
         card.innerHTML = `
 
         <img
-        src="${
-            ad.image ||
-            'images/1.jpg'
-        }"
-        alt="${ad.title}"
+        src="${ad.image || 'images/1.jpg'}"
+        alt="${ad.title || ''}"
         style="
             width:100%;
             height:300px;
@@ -91,23 +86,21 @@ function renderAds(ads){
 
         <div class="ad-content">
 
-            <div class="ad-title">
+            <h3>
                 ${ad.title || ""}
-            </div>
+            </h3>
 
-            <div class="ad-description">
+            <p>
                 ${ad.description || ""}
-            </div>
+            </p>
 
-            <div class="ad-price">
+            <h4>
                 ${ad.price || "0"} ₺
-            </div>
-
-            <br>
+            </h4>
 
             <p>
                 <strong>Kategori:</strong>
-                ${ad.category || "Diğer"}
+                ${ad.category || "-"}
             </p>
 
             <p>
@@ -152,11 +145,11 @@ document.querySelector(
 ".search-box input"
 );
 
-if(searchInput){
+if (searchInput) {
 
     searchInput.addEventListener(
         "input",
-        function(){
+        function () {
 
             const value =
             this.value.toLowerCase();
@@ -173,6 +166,12 @@ if(searchInput){
                     ||
 
                     ad.description
+                    ?.toLowerCase()
+                    .includes(value)
+
+                    ||
+
+                    ad.category
                     ?.toLowerCase()
                     .includes(value)
 
@@ -202,4 +201,3 @@ if(searchInput){
 /* SAHYPA AÇYLANDA */
 
 loadAds();
-```
