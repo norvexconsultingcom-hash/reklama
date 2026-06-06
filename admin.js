@@ -29,10 +29,12 @@ const adminAds = document.getElementById("adminAds");
 /* LOGIN */
 
 loginBtn.addEventListener("click", async () => {
+
 const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value;
 
 try {
+
 await signInWithEmailAndPassword(
 auth,
 email,
@@ -41,10 +43,12 @@ password
 
 alert("Giriş başarılı");
 
-
 } catch (error) {
+
 alert(error.message);
+
 }
+
 });
 
 /* AUTH CONTROL */
@@ -58,7 +62,6 @@ adminPanel.style.display = "block";
 adminAdsSection.style.display = "block";
 
 loadAds();
-
 
 } else {
 
@@ -91,28 +94,58 @@ alert(error.message);
 addAdBtn.addEventListener("click", async () => {
 
 const title = document.getElementById("title").value.trim();
-const description = document.getElementById("description").value.trim();
-const price = document.getElementById("price").value;
-const image = document.getElementById("image").value.trim();
-const category = document.getElementById("category").value;
+
+const description =
+document.getElementById("description").value.trim();
+
+const price =
+document.getElementById("price").value;
+
+const image =
+document.getElementById("photo").value;
+
+const phone =
+document.getElementById("phone").value.trim();
+
+const whatsapp =
+document.getElementById("whatsapp").value.trim();
+
+const location =
+document.getElementById("location").value.trim();
+
+const gender =
+document.getElementById("gender").value;
+
+const age =
+document.getElementById("age").value;
+
+const category =
+document.getElementById("category").value;
 
 if (!title || !description) {
+
 alert("Başlık ve açıklama gerekli");
 return;
+
 }
 
 try {
 
 await addDoc(
-  collection(db, "ads"),
-  {
-    title,
-    description,
-    price,
-    image,
-    category,
-    createdAt: Date.now()
-  }
+collection(db, "ads"),
+{
+title,
+description,
+price,
+image,
+phone,
+whatsapp,
+location,
+gender,
+age,
+category,
+createdAt: Date.now()
+}
 );
 
 alert("İlan eklendi");
@@ -120,7 +153,12 @@ alert("İlan eklendi");
 document.getElementById("title").value = "";
 document.getElementById("description").value = "";
 document.getElementById("price").value = "";
-document.getElementById("image").value = "";
+document.getElementById("photo").value = "";
+document.getElementById("phone").value = "";
+document.getElementById("whatsapp").value = "";
+document.getElementById("location").value = "";
+document.getElementById("gender").value = "";
+document.getElementById("age").value = "";
 
 loadAds();
 
@@ -141,48 +179,56 @@ adminAds.innerHTML = "";
 try {
 
 const querySnapshot = await getDocs(
-  collection(db, "ads")
+collection(db, "ads")
 );
 
 querySnapshot.forEach((docSnap) => {
 
-  const ad = docSnap.data();
+const ad = docSnap.data();
 
-  const card = document.createElement("div");
+const card = document.createElement("div");
 
-  card.className = "ad-card";
+card.className = "ad-card";
 
-  card.innerHTML = `
-    <img
-      src="${ad.image || 'https://via.placeholder.com/500x300'}"
-      alt="${ad.title}"
-      style="
-        width:100%;
-        height:200px;
-        object-fit:cover;
-      "
-    >
+card.innerHTML = `
+<img
+src="${ad.image || 'images/1.jpg'}"
+alt="${ad.title}"
+style="
+width:100%;
+height:200px;
+object-fit:cover;
+">
 
-    <div class="ad-content">
+<div class="ad-content">
 
-      <h3>${ad.title}</h3>
+<h3>${ad.title}</h3>
 
-      <p>${ad.description}</p>
+<p>${ad.description}</p>
 
-      <h4>${ad.price || 0} ₺</h4>
+<h4>${ad.price || 0} ₺</h4>
 
-      <p>${ad.category}</p>
+<p><strong>Kategori:</strong> ${ad.category || "-"}</p>
 
-      <button
-        onclick="deleteAd('${docSnap.id}')"
-      >
-        Sil
-      </button>
+<p><strong>Telefon:</strong> ${ad.phone || "-"}</p>
 
-    </div>
-  `;
+<p><strong>WhatsApp:</strong> ${ad.whatsapp || "-"}</p>
 
-  adminAds.appendChild(card);
+<p><strong>Konum:</strong> ${ad.location || "-"}</p>
+
+<p><strong>Cinsiyet:</strong> ${ad.gender || "-"}</p>
+
+<p><strong>Yaş:</strong> ${ad.age || "-"}</p>
+
+<button
+onclick="deleteAd('${docSnap.id}')">
+Sil
+</button>
+
+</div>
+`;
+
+adminAds.appendChild(card);
 
 });
 
@@ -207,7 +253,7 @@ if (!result) return;
 try {
 
 await deleteDoc(
-  doc(db, "ads", id)
+doc(db, "ads", id)
 );
 
 loadAds();

@@ -1,11 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Reklama Norvex Admin</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,8 +23,6 @@
     </div>
 
 </header>
-
-<!-- LOGIN -->
 
 <section id="loginSection">
 
@@ -51,8 +48,6 @@
 
 </section>
 
-<!-- ADMIN PANEL -->
-
 <section
 id="adminPanel"
 style="display:none;">
@@ -68,52 +63,76 @@ style="display:none;">
 
         <textarea
         id="description"
-        placeholder="İlan Açıklaması">
-        </textarea>
+        placeholder="İlan Açıklaması"></textarea>
 
         <input
         type="number"
         id="price"
         placeholder="Fiyat">
 
+        <label>Fotoğraf Seç</label>
+
+        <select id="photo">
+
+            <option value="">
+                Fotoğraf Seç
+            </option>
+
+            <option value="images/1.jpg">Fotoğraf 1</option>
+            <option value="images/2.jpg">Fotoğraf 2</option>
+            <option value="images/3.jpg">Fotoğraf 3</option>
+            <option value="images/4.jpg">Fotoğraf 4</option>
+            <option value="images/5.jpg">Fotoğraf 5</option>
+            <option value="images/6.jpg">Fotoğraf 6</option>
+            <option value="images/7.jpg">Fotoğraf 7</option>
+            <option value="images/8.jpg">Fotoğraf 8</option>
+            <option value="images/9.jpg">Fotoğraf 9</option>
+            <option value="images/10.jpg">Fotoğraf 10</option>
+
+        </select>
+
+        <input
+        type="tel"
+        id="phone"
+        placeholder="Telefon Numarası">
+
         <input
         type="text"
-        id="image"
-        placeholder="Resim URL">
+        id="whatsapp"
+        placeholder="WhatsApp Numarası">
+
+        <input
+        type="text"
+        id="location"
+        placeholder="Konum">
+
+        <select id="gender">
+
+            <option value="">
+                Cinsiyet Seç
+            </option>
+
+            <option>Erkek</option>
+            <option>Kadın</option>
+            <option>Diğer</option>
+
+        </select>
+
+        <input
+        type="number"
+        id="age"
+        placeholder="Yaş">
 
         <select id="category">
 
-            <option>
-                Yazılım İşleri
-            </option>
-
-            <option>
-                Grafik Tasarım
-            </option>
-
-            <option>
-                Web Tasarım
-            </option>
-
-            <option>
-                Mobil Uygulama
-            </option>
-
-            <option>
-                Dijital Pazarlama
-            </option>
-
-            <option>
-                Muhasebe
-            </option>
-
-            <option>
-                Eğitim
-            </option>
-
-            <option>
-                Diğer
-            </option>
+            <option>Yazılım İşleri</option>
+            <option>Grafik Tasarım</option>
+            <option>Web Tasarım</option>
+            <option>Mobil Uygulama</option>
+            <option>Dijital Pazarlama</option>
+            <option>Muhasebe</option>
+            <option>Eğitim</option>
+            <option>Diğer</option>
 
         </select>
 
@@ -124,8 +143,6 @@ style="display:none;">
     </div>
 
 </section>
-
-<!-- İLANLAR -->
 
 <section
 id="adminAdsSection"
@@ -149,3 +166,4 @@ src="admin.js">
 
 </body>
 </html>
+```
